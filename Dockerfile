@@ -22,7 +22,7 @@ RUN a2enmod deflate
 # Download and configure zurmo
 RUN wget http://build.zurmo.com/downloads/zurmo-stable-3.2.5.d5d5f53cc259.tar.gz
 RUN tar -xvf zurmo-stable-3.2.5.d5d5f53cc259.tar.gz
-RUN mv zurmo /var/www/html
+RUN mv zurmo /var/www/html && rm /var/www/html/zurmo/test.php
 RUN chmod -R 777 /var/www/html/zurmo
 
 EXPOSE 80
