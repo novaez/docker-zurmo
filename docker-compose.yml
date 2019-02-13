@@ -2,7 +2,8 @@ version: "2"
 
 services:
   zurmo:
-    image: hxquangnhat/zurmo
+    build: .
+    image: zurmo
     container_name: zurmo
     hostname: zurmo
     ports:
@@ -13,7 +14,7 @@ services:
       - zurmo_data:/var/www/html/zurmo
 
   mysql:
-    image: mysql
+    image: mysql:5.7
     container_name: mysql-zurmo
     hostname: mysql-zurmo
     networks:
@@ -23,7 +24,7 @@ services:
       - MYSQL_DATABASE=zurmo
       - MYSQL_USER=zurmo
       - MYSQL_PASSWORD=zurmo
-    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci --default-storage-engine=INNODB --max-sp-recursion-depth=100 --max-allowed-packet=20M --thread-stack=512K --optimizer-search-depth=0 --sql-mode="NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci --default-storage-engine=INNODB --max-sp-recursion-depth=100 --max-allowed-packet=20M --thread-stack=512K --optimizer-search-depth=0 --sql-mode="NO_ENGINE_SUBSTITUTION"
     volumes:
       - zurmo_mysql_data:/var/lib/mysql
   
