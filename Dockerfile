@@ -20,8 +20,8 @@ COPY php.ini /etc/php5/apache2/
 RUN a2enmod deflate
 
 # Download and configure zurmo
-RUN wget http://build.zurmo.com/downloads/zurmo-stable-3.1.5.a5a46793e4a5.tar.gz
-RUN tar -xvf  zurmo-stable-3.1.5.a5a46793e4a5.tar.gz
+RUN wget http://build.zurmo.com/downloads/zurmo-stable-3.2.5.d5d5f53cc259.tar.gz
+RUN tar -xvf zurmo-stable-3.2.5.d5d5f53cc259.tar.gz
 RUN mv zurmo /var/www/html
 RUN chmod -R 777 /var/www/html/zurmo
 
