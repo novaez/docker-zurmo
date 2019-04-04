@@ -4,6 +4,7 @@ services:
   zurmo:
     build: .
     image: zurmo
+    restart: unless-stopped
     container_name: zurmo
     hostname: zurmo
     ports:
@@ -15,6 +16,7 @@ services:
 
   mysql:
     image: mysql:5.7
+    restart: unless-stopped
     container_name: mysql-zurmo
     hostname: mysql-zurmo
     networks:
@@ -30,6 +32,7 @@ services:
   
   memcached:
     image: memcached
+    restart: unless-stopped
     container_name: memcached-zurmo
     hostname: memcached-zurmo
     networks:
